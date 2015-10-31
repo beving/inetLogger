@@ -1,0 +1,23 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "device",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "destinationSite",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "date",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20151031005231",
+    "dto": "no",
+    "pagination": "no"
+}

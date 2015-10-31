@@ -1,0 +1,20 @@
+{
+    "iLoggerApp": {
+        "internetAddress" : {
+            "home": {
+                "title": "InternetAddresss",
+                "createLabel": "Créer un nouveau InternetAddress",
+                "createOrEditLabel": "Créer ou éditer un InternetAddress"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le InternetAddress {{ id }} ?"
+            },
+            "detail": {
+                "title": "InternetAddress"
+            },
+            "ipAddress": "IpAddress",
+            "hostname": "Hostname"
+        }
+    }
+}
+

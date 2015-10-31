@@ -1,0 +1,23 @@
+{
+    "iLoggerApp": {
+        "dhcpClient" : {
+            "home": {
+                "title": "DhcpClients",
+                "createLabel": "Create a new DhcpClient",
+                "createOrEditLabel": "Create or edit a DhcpClient"
+            },
+            "created": "A new DhcpClient is created with identifier {{ param }}",
+            "updated": "A DhcpClient is updated with identifier {{ param }}",
+            "deleted": "A DhcpClient is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete DhcpClient {{ id }}?"
+            },
+            "detail": {
+                "title": "DhcpClient"
+            },
+            "macAddress": "MacAddress",
+            "hostname": "Hostname",
+            "comment": "Comment"
+        }
+    }
+}

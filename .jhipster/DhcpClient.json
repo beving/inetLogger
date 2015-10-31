@@ -1,0 +1,23 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "macAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "hostname",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "comment",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20151031011307",
+    "dto": "no",
+    "pagination": "no"
+}

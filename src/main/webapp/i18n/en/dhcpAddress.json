@@ -1,0 +1,22 @@
+{
+    "iLoggerApp": {
+        "dhcpAddress" : {
+            "home": {
+                "title": "DhcpAddresss",
+                "createLabel": "Create a new DhcpAddress",
+                "createOrEditLabel": "Create or edit a DhcpAddress"
+            },
+            "created": "A new DhcpAddress is created with identifier {{ param }}",
+            "updated": "A DhcpAddress is updated with identifier {{ param }}",
+            "deleted": "A DhcpAddress is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete DhcpAddress {{ id }}?"
+            },
+            "detail": {
+                "title": "DhcpAddress"
+            },
+            "macAddress": "MacAddress",
+            "ipAddress": "IpAddress"
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "iLoggerApp": {
+        "siteRecord" : {
+            "home": {
+                "title": "SiteRecords",
+                "createLabel": "Créer un nouveau SiteRecord",
+                "createOrEditLabel": "Créer ou éditer un SiteRecord"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le SiteRecord {{ id }} ?"
+            },
+            "detail": {
+                "title": "SiteRecord"
+            },
+            "device": "Device",
+            "destinationSite": "DestinationSite",
+            "date": "Date"
+        }
+    }
+}
+

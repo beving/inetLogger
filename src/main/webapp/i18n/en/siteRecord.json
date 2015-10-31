@@ -1,0 +1,23 @@
+{
+    "iLoggerApp": {
+        "siteRecord" : {
+            "home": {
+                "title": "SiteRecords",
+                "createLabel": "Create a new SiteRecord",
+                "createOrEditLabel": "Create or edit a SiteRecord"
+            },
+            "created": "A new SiteRecord is created with identifier {{ param }}",
+            "updated": "A SiteRecord is updated with identifier {{ param }}",
+            "deleted": "A SiteRecord is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete SiteRecord {{ id }}?"
+            },
+            "detail": {
+                "title": "SiteRecord"
+            },
+            "device": "Device",
+            "destinationSite": "DestinationSite",
+            "date": "Date"
+        }
+    }
+}
