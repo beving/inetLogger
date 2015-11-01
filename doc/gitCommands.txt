@@ -1,0 +1,17 @@
+git push --force origin master
+
+git commit
+
+git status
+
+
+git add .
+
+#clone repo
+git clone 
+
+#Undo add
+git reset <file>
+
+#Push to online repo
+git push --force origin master
