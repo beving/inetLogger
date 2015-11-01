@@ -29,7 +29,7 @@ public class SiteMinderService {
 	SiteRecordRepository siteRecordRepository;
 	
 	@Inject	
-	InetAddressService iNetAddressService;
+	InetAddressService internetAddressService;
 	
 	public void loadLogs() {
 		log.info("Starting the process to load the logs at: " + new Date());
@@ -41,7 +41,6 @@ public class SiteMinderService {
 	
 	private List<SiteRecord> determineHostnames(Set<Record> records) {
 		List<SiteRecord> siteRecords = new ArrayList<>();
-		InetAddressService internetAddressService = new InetAddressService();
 
 		int i = 0;//TODO rm
 		
@@ -56,7 +55,7 @@ public class SiteMinderService {
 			siteRecord.setDestinationSite(internetAddressService.determineHostname(record.getDestination()).getHostName());
 			siteRecord.setDevice(internetAddressService.determineHostname(record.getSource()).getHostName());
 			
-			log.info("siteRecord++ " + siteRecord);
+			log.info(siteRecord.toString());
 			
 			siteRecords.add(siteRecord);
 		}
