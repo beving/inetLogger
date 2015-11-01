@@ -4,6 +4,14 @@
 # This configuration overrides the application.yml file.
 # ===================================================================
 
+
+router:
+   logFileName: U:\\router.log
+   ignoreAllList: 
+      0.0.0.0 
+      8.8.8.8
+   ignoreInternalNetwork: 192.168
+   
 # ===================================================================
 # Standard Spring Boot properties.
 # Full reference is available at:
