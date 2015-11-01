@@ -1,15 +1,15 @@
 id;mac_address;hostname;comment
-1;00:0e:08:2a:06:5a;sipuraspa;Phone
-2;9c:ad:97:db:fc:43;JoshsComputer;Joshuas
+1;00:0e:08:2a:06:5a;Sipuraspa;phone
+2;9c:ad:97:db:fc:43;joshscomputer;joshuas
 3;00:08:74:2e:bf:89;mythubuntu;myth box
-4;fc:db:b3:63:75:99;android-2db8fd693e586118;Unknown
-5;14:2D:27:50:02:A3;_BOSS_-PC;Daniels Computer
-6;80:D2:1D:15:8D:54;Chromecast;
-7;00:1A:EF:17:BC:CA;lenovo;
-8;9C:AD:97:DB:FC:43;Unknown *;
-9;B0:34:95:9C:63:14;Daniels Phone;	
-10;B0:34:95:9F:12:86;iphone;
-11;90:21:55:BC:E3:F6;Android_359637035811609;	
-12;78:4B:87:72:0E:BB;android-c708e4c755b2f685;	
-13;08:3D:88:AD:1E:8D;android-a1aa648d1b13a09f;	
-14;00:1F:E1:67:34:12;donnaslaptop;
+4;fc:db:b3:63:75:99;android-2db8fd693e586118;unknown
+5;14:2d:27:50:02:a3;_boss_-pc;Daniels Computer
+6;80:d2:1d:15:8d:54;chromecast;
+7;00:1a:ef:17:bc:ca;lenovo;
+8;9c:ad:97:db:fc:43;unknown;
+9;b0:34:95:9c:63:14;Daniels Phone;	
+10;b0:34:95:9f:12:86;iphone;
+11;90:21:55:bc:e3:f6;android_359637035811609;	
+12;78:4b:87:72:0e:bb;android-c708e4c755b2f685;	
+13;08:3d:88:ad:1e:8d;android-a1aa648d1b13a09f;	
+14;00:1f:e1:67:34:12;Donnas Laptop;

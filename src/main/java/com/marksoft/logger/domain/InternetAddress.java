@@ -15,7 +15,19 @@ import java.util.Objects;
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class InternetAddress implements Serializable {
 
-    @Id
+	private static final long serialVersionUID = -8367438548375705606L;
+
+	public InternetAddress() {
+		super();
+	}
+
+	public InternetAddress(String ipAddress, String hostname) {
+		super();
+		this.ipAddress = ipAddress;
+		this.hostname = hostname;
+	}
+
+	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 

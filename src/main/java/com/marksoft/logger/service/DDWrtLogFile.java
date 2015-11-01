@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -16,14 +15,12 @@ import java.util.Set;
 
 import javax.inject.Inject;
 
-import org.joda.time.LocalDate;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Multiset;
 import com.marksoft.logger.domain.Record;
-import com.marksoft.logger.domain.SiteRecord;
 /**
  * Read Log file and parse into usable variables.
  * 
@@ -88,33 +85,9 @@ public class DDWrtLogFile implements RouterLog {
 		for (Record record : records) {
 			record.setCount(records.count(record));
 		}
-		 
 		return records.elementSet();
 	}
-	
-	/*public List<SiteRecord> determineHostnames(Set<Record> records) {
-		List<SiteRecord> siteRecords = new ArrayList<>();
-		InetAddressService inetAddressTest = new InetAddressService();
-
-		int i = 0;//TODO rm
-		
-		for (Record record : records) {
-		
-			i++;
-			if (i > 10) break; //TODO rm
-			
-			SiteRecord siteRecord = new SiteRecord();
-			
-			siteRecord.setDate(new LocalDate(record.getDate())); //TODO map  Date to LocalDate
-			siteRecord.setDestinationSite(inetAddressTest.determineHostname(record.getDestination()).getHostName());
-			siteRecord.setDevice(inetAddressTest.determineHostname(record.getSource()).getHostName());
-			
-			System.out.println("+++" + siteRecord);
-			
-			siteRecords.add(siteRecord);
-		}
-		return siteRecords;
-	} */
+ 
 }
 
 

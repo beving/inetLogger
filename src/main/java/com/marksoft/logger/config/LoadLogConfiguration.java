@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -28,7 +29,8 @@ public class LoadLogConfiguration {
 	@Inject	
 	SiteMinderService siteMinderService;
 	
-	public LoadLogConfiguration() {
+	@PostConstruct
+	public void init() {
 		//Load up when testing
 		Collection<String> activeProfiles = Arrays.asList(env.getActiveProfiles());
 		if (activeProfiles.contains(Constants.SPRING_PROFILE_DEVELOPMENT)) {

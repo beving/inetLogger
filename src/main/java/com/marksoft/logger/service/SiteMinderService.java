@@ -13,8 +13,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.marksoft.logger.domain.InternetAddress;
 import com.marksoft.logger.domain.Record;
 import com.marksoft.logger.domain.SiteRecord;
+import com.marksoft.logger.repository.InternetAddressRepository;
 import com.marksoft.logger.repository.SiteRecordRepository;
 	
 @Service	
@@ -31,12 +33,15 @@ public class SiteMinderService {
 	@Inject	
 	InetAddressService internetAddressService;
 	
-	public void loadLogs() {
+	@Inject
+	InternetAddressRepository internetAddressRepository;
+	
+	public void loadLogs() {   
 		log.info("Starting the process to load the logs at: " + new Date());
 		
 		List<SiteRecord> siteRecords = determineHostnames(routerLog.readFiles());
 		
-		siteRecordRepository.save(siteRecords);
+		List<SiteRecord> recs = siteRecordRepository.save(siteRecords);
 	}
 	
 	private List<SiteRecord> determineHostnames(Set<Record> records) {
@@ -47,19 +52,36 @@ public class SiteMinderService {
 		for (Record record : records) {
 		
 			i++;
-			if (i > 10) break; //TODO rm
+			if (i > 500) break; //TODO rm
 			
 			SiteRecord siteRecord = new SiteRecord();
 			
 			siteRecord.setDate(new LocalDate(record.getDate()));
-			siteRecord.setDestinationSite(internetAddressService.determineHostname(record.getDestination()).getHostName());
-			siteRecord.setDevice(internetAddressService.determineHostname(record.getSource()).getHostName());
+			siteRecord.setDestinationSite(getHostname(record.getDestination()));
+			siteRecord.setDevice(getHostname(record.getSource()));
 			
 			log.info(siteRecord.toString());
 			
 			siteRecords.add(siteRecord);
 		}
 		return siteRecords;
+	}
+	
+	private String getHostname(String ipAddress) {  
+		String hostname; 
+		
+		List<InternetAddress> internetAddresses = internetAddressRepository.findByIpAddress(ipAddress);
+		
+		if (internetAddresses.iterator().hasNext()) {
+			hostname = internetAddresses.iterator().next().getHostname();
+			log.debug("Used internet address from DB: " + ipAddress + "  Hostname: " + hostname);
+		} else {
+			hostname = internetAddressService.determineHostname(ipAddress).getHostName();
+			
+			internetAddressRepository.save(new InternetAddress(ipAddress, hostname));
+			log.debug("Saving new internet address: " + ipAddress + "  Hostname: " + hostname);
+		}
+		return hostname;
 	}
 }
 

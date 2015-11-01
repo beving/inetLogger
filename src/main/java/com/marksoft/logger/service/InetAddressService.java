@@ -28,7 +28,7 @@ public class InetAddressService {
 		InetAddress addr;
 		try {
 			
-			String ids[] = {"38.109.123.33", "173.194.36.37", "216.58.218.174", "216.58.218.195", "31.13.66.5",
+			String ids[] = {"192.168.11.147", "192.168.11.108", "192.168.11.104", "192.168.11.148", "31.13.66.5",
 			"8.8.8.8", "24.32.41.171"		
 			};
 			List<String> idList = Arrays.asList(ids);
