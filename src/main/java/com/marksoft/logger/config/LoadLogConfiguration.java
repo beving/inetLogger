@@ -25,6 +25,9 @@ public class LoadLogConfiguration {
 	@Inject
     private Environment env;
 	
+	@Inject	
+	SiteMinderService siteMinderService;
+	
 	public LoadLogConfiguration() {
 		//Load up when testing
 		Collection<String> activeProfiles = Arrays.asList(env.getActiveProfiles());
@@ -32,9 +35,6 @@ public class LoadLogConfiguration {
 			loadLogsTask();
 		}
 	}
-
-	@Inject	
-	SiteMinderService siteMinderService;
 	
 	@Scheduled(cron="0 57 23 ? * *") //Run at a few minutes before midnight.
 	public void loadLogsTask() {
@@ -42,7 +42,6 @@ public class LoadLogConfiguration {
 
 		siteMinderService.loadLogs();
 	}
-	 
 }
 
 
