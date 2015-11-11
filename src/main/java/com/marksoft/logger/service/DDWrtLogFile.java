@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -15,6 +16,8 @@ import java.util.Set;
 
 import javax.inject.Inject;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +38,8 @@ public class DDWrtLogFile implements RouterLog {
 	@Inject
 	private Environment environment;
 	
+	private final Logger log = LoggerFactory.getLogger(DDWrtLogFile.class);
+	
 	public Set<Record> readFiles() {
 		Multiset<Record> records=HashMultiset.create(1); 
 		
@@ -48,13 +53,23 @@ public class DDWrtLogFile implements RouterLog {
 			while ((strLine = br.readLine()) != null) {
 
 				if (strLine.length() > 100) {
+					
+					//Remove any double spaces (occurs at beginning of a month ;)
+					strLine = strLine.replace("  ", " ");
 
-					String[] tokens = strLine.split(" ");  
-					String month = tokens[0];
-					String day = tokens[1];
-					String macAddress = tokens[9];
-					String src = tokens[10].replace("SRC=", "");
-					String dest = tokens[11].replace("DST=", "");
+					List<String> tokens = clean(strLine.split(" ")); 
+					if (tokens.size() < 13) continue;
+					
+					String month = tokens.get(0);
+					
+					String day = tokens.get(1).trim();
+					if (day.length() == 1) {
+						day = "0" + day;
+					}
+					
+					String macAddress = tokens.get(9);
+					String src = tokens.get(10);
+					String dest = tokens.get(11);
 					
 					//Ignore anything on the ignore all list
 					List<String> ignoreAllList =  Arrays.asList(environment.getProperty("router.ignoreAllList").split(" "));
@@ -84,8 +99,25 @@ public class DDWrtLogFile implements RouterLog {
 		//Set the count of each record
 		for (Record record : records) {
 			record.setCount(records.count(record));
-		}
+		}               
 		return records.elementSet();
+	}
+	
+	private List<String> clean(String[] strs) {
+		List<String> strings = new ArrayList<>();
+		
+		for (String string : strs) {
+
+			List<String> ignoreAllList = Arrays.asList(environment.getProperty("router.ddwrt.ignoreStrings").split(" "));
+			for (String strToIgnore : ignoreAllList) {
+				if (string.contains(strToIgnore)) {
+					string = string.replace(strToIgnore, "");
+					log.debug(string);
+				}
+			}
+			strings.add(string);
+		}
+		return strings;
 	}
  
 }

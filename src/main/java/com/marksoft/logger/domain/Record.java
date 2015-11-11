@@ -1,7 +1,10 @@
 package com.marksoft.logger.domain;
 
 import java.util.Date;
-
+/**
+ * A record that is read from the routers log file.
+ * @author mark
+ */
 public class Record {
 	Date date;
 	String macAddress;

@@ -11,6 +11,15 @@ router:
       0.0.0.0 
       8.8.8.8
    ignoreInternalNetwork: 192.168
+   ddwrt:
+      ignoreStrings:
+          SRC=
+          DST=
+          MAC=
+             
+   
+app:   
+   maxRecordsToRead: 20000
    
 # ===================================================================
 # Standard Spring Boot properties.
